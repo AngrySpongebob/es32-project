@@ -1,0 +1,6 @@
+[wokwi]
+version = 1
+chip = "esp32"
+elf = "build/4_led_traffic.elf"
+firmware = "build/4_led_traffic.bin"
+gdbServerPort = 3333

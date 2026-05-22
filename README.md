@@ -18,7 +18,7 @@ es32-project/
 │   ├──sdkconfig （ESP-IDF配置文件）
 │   ├──wokwi.tom（wokwi的项目配置文件）
 │   └──[README.md]
-├── esp32开发板管教布局图片（基于ESP32-DevKitC V4）
+├── esp32开发板管脚布局图片（基于ESP32-DevKitC V4）
 └── esp-dev-kits-zh_CN-master-esp32.pdf ESP32开发板官方中文文档
 ```
 ## 模块介绍

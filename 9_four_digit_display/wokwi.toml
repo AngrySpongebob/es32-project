@@ -1,0 +1,10 @@
+[wokwi]
+version = 1
+firmware = "build/9_four_digit_display.elf"
+elf = "build/9_four_digit_display.elf"
+board = "esp32-devkit-c-v4"
+baudrate = 115200
+
+[simulation]
+enableSerialMonitor = true
+logLevel = "info"

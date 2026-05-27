@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 76.8,
+      "left": -110.36,
+      "attrs": { "builder": "esp-idf" }
+    },
+    {
+      "type": "wokwi-max7219-matrix",
+      "id": "matrix1",
+      "top": -28.2,
+      "left": -5.79,
+      "attrs": { "chain": "1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "matrix1:V+", "esp:3V3", "violet", [ "h28.8", "v-48", "h-230.4", "v163.2" ] ],
+    [ "matrix1:GND", "esp:GND.2", "black", [ "h9.6", "v-38.4", "h-124.8" ] ],
+    [ "matrix1:DIN", "esp:23", "red", [ "h96", "v124.8" ] ],
+    [ "matrix1:CS", "esp:15", "gold", [ "h57.6", "v249.6" ] ],
+    [ "matrix1:CLK", "esp:18", "limegreen", [ "h28.8", "v172.8" ] ]
+  ],
+  "dependencies": {}
+}

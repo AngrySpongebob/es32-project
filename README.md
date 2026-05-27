@@ -26,3 +26,6 @@ es32-project/
 - 模块2（2_key）: 按键控制LED灯的开关
 - 模块3（3_led_breath）: LED灯呼吸效果
 - 模块4（4_led_traffic）: LED灯交通信号灯效果
+- 模块8 （8_single_digit_seg）一位数码管从0到9循环显示
+- 模块9 （9_four_digit_display) 四位数码管显示网络时钟
+- 模块10 （10_dotMatrix_demo） 8*8点阵屏显示爱心和笑脸

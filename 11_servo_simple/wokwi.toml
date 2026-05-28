@@ -1,0 +1,10 @@
+[wokwi]
+version = 1
+firmware = "build/11_servo_simple.elf"
+elf = "build/11_servo_simple.elf"
+board = "esp32-devkit-c-v4"
+baudrate = 115200
+
+[simulation]
+enableSerialMonitor = true
+logLevel = "info"

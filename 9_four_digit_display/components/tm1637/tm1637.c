@@ -44,24 +44,48 @@ static void tm1637_write_byte(tm1637_led_t* lcd, uint8_t data) {
     vTaskDelay(1 / portTICK_PERIOD_MS);
 }
 
+// 初始化 TM1637 数码管
+// 参数：clk -> 时钟引脚   dio -> 数据引脚
+// 返回：TM1637 设备句柄（类似设备对象）
 tm1637_led_t* tm1637_init(gpio_num_t clk, gpio_num_t dio) {
+    // 1. 申请一段内存，用来存放 TM1637 的设备信息（引脚、配置等）
+    // calloc 会自动把内存清零，比 malloc 更安全
     tm1637_led_t* lcd = calloc(1, sizeof(tm1637_led_t));
+
+    // 2. 把传入的 CLK 和 DIO 引脚保存到设备结构体中
     lcd->clk = clk;
     lcd->dio = dio;
 
-    gpio_config_t io_conf = {};
+    // 3. 配置 GPIO 模式
+    gpio_config_t io_conf = {};  // 定义GPIO配置结构体，初始化为0
+
+    // 关闭中断（TM1637 通信不需要中断）
     io_conf.intr_type = GPIO_INTR_DISABLE;
+
+    // 设置为推挽输出模式
     io_conf.mode = GPIO_MODE_OUTPUT;
+
+    // 把 CLK 和 DIO 两个引脚一起配置
     io_conf.pin_bit_mask = (1ULL << clk) | (1ULL << dio);
+
+    // 关闭内部下拉电阻
     io_conf.pull_down_en = 0;
+
+    // 关闭内部上拉电阻
     io_conf.pull_up_en = 0;
+
+    // 把上面的配置真正写入硬件寄存器
     gpio_config(&io_conf);
 
-    tm1637_start(lcd);
-    tm1637_write_byte(lcd, 0x40);
-    tm1637_stop(lcd);
+    // 4. 发送 TM1637 初始化指令：设置数据显示模式（普通写显示模式）
+    tm1637_start(lcd);        // 发送起始信号
+    tm1637_write_byte(lcd, 0x40); // 写指令：0x40 = 数据写模式，自动地址加1
+    tm1637_stop(lcd);         // 发送停止信号
 
-    tm1637_set_brightness(lcd, 3);
+    // 5. 设置默认亮度（3级，范围0~7）
+    tm1637_set_brightness(lcd, 1);
+
+    // 6. 返回初始化好的 TM1637 设备句柄
     return lcd;
 }
 

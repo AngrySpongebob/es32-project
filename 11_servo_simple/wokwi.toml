@@ -1,7 +1,7 @@
 [wokwi]
 version = 1
-firmware = "build/11_servo_simple.elf"
-elf = "build/11_servo_simple.elf"
+firmware = "cmake-build-debug-esp32-eim/11_servo_simple.elf"
+elf = "cmake-build-debug-esp32-eim/11_servo_simple.elf"
 board = "esp32-devkit-c-v4"
 baudrate = 115200
 

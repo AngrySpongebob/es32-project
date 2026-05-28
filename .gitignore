@@ -11,10 +11,11 @@ CTestTestfile.cmake
 _deps
 CMakeUserPresets.json
 build
-.idea
+.idea/
+cmake-build-*/
 .gitignore
+dependencies.lock
 .vscode
-managed_components
 # CLion
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore

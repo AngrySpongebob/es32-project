@@ -5,7 +5,7 @@
 #include "iot_servo.h"
 
 /* ==================== 配置 ==================== */
-#define SERVO_GPIO      13          // 舵机信号线
+#define SERVO_GPIO      15          // 舵机信号线
 #define SERVO_CHANNEL   0           // 第 0 路舵机
 
 /**
